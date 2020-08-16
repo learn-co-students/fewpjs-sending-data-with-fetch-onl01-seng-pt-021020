@@ -1,3 +1,5 @@
+const fetch = require('node-fetch')
+
 function submitData(userName, userEmail) {
     let formData = {
         name: userName,
@@ -13,14 +15,28 @@ function submitData(userName, userEmail) {
         body: JSON.stringify(formData)
     }
 
-    return fetch('http://localhost:3000/users', configObj)
+    let resp = fetch('http://localhost:3000/users', configObj)
         .then(response => {return response.json()})
         .then(response => {return addIdToDOM(response)})
+        .catch(error => {addErrorToDOM(error)})
+
+    return resp
 }
 
-function addIdToDOM(responseObj) {
+function addIdToDOM(response) {
     const body = document.querySelector('body')
     const p = document.createElement('p')
-    p.innerText = JSON.stringify(responseObj.keys)
-    return responseObj
+    p.textContent = JSON.stringify(response.id)
+    body.appendChild(p)
+
+    return response
+}
+
+function addErrorToDOM(error) {
+    const body = document.querySelector('body')
+    const p = document.createElement('p')
+    p.textContent = error.message
+    body.appendChild(p)
+
+    return error
 }
