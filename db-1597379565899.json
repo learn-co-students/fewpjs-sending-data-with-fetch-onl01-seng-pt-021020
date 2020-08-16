@@ -9,12 +9,6 @@
       "dogName": "Lola",
       "dogBreed": "Giant Schnauzer",
       "id": 2
-    },
-    {
-      "dogName": "Majesty",
-      "dogBreed": "English Pointer ",
-      "submit": "Submit",
-      "id": 3
     }
   ],
   "cats": [
@@ -29,23 +23,7 @@
       "id": 2
     }
   ],
-  "users": [
-    {
-      "id": 1
-    },
-    {
-      "id": 2
-    },
-    {
-      "id": 3
-    },
-    {
-      "id": 4
-    },
-    {
-      "id": 5
-    }
-  ],
+  "users": [],
   "robots": [
     {
       "robotName": "C8-09S100K",
