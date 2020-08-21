@@ -1,0 +1,41 @@
+// configurationObject = {
+//   method: "POST",
+//   headers: {
+//     "Content-Type": "application/json",
+//     "Accept": "application/json"
+//   },
+//   body: JSON.stringify({
+//     dogName: "Byron",
+//     dogBreed: "Poodle"
+//   })
+// };
+
+//when data is exchanged between a client (your browser, for instance),
+//and a server, the data is sent as text. Whatever data we're assigning
+//to the body of our request needs to be a string.
+
+let formData = {
+  dogName: "Byron",
+  dogBreed: "Poodle"
+};
+
+let configObj = {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "Accept": "application/json"
+  },
+  body: JSON.stringify(formData)
+};
+
+fetch("http://localhost:3000/dogs", configObj)
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(object) {
+    console.log(object);
+  })
+  .catch(function(error) {
+    alert("Bad things! Ragnarők!");
+    console.log(error.message);
+  });
